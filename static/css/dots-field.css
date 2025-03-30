@@ -1,0 +1,14 @@
+#dots-field {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    z-index: -1; /* Ensure it stays in the background */
+    overflow: visible !important;
+  }
+  
+  #dots-field circle {
+    fill: grey;
+    opacity: 0.5;
+  }

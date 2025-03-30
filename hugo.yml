@@ -1,0 +1,78 @@
+baseURL: "https://mingyi-ai.github.io/"
+title: "Mingyi's Page"
+languageCode: "en-us"
+theme: "PaperMod"
+
+paginate.pageSize: 10
+
+enableInlineShortcodes: true 
+enableRobotsTXT: true
+enableEmoji: true
+pygmentsUseClasses: true # syntax highlighting
+
+build:
+  drafts: false
+  future: false
+  expired: false
+
+mainsections: ["posts", "projects"]
+
+minify:
+  disableXML: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+menu:
+  main:
+    - name: Posts
+      url: posts/
+      weight: 5
+    - name: Codes
+      url: projects/
+      weight: 10
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  author: "Mingyi Hou"
+  ShowShareButtons: false
+  ShowReadingTime: true
+  disableSpecial1stPost: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+  comments: false
+
+  profileMode:
+    enabled: true
+    title: "Hou, Mingyi" # optional default will be site title
+    subtitle: "Machine Learning | Mathematics" # optional
+    imageUrl: "/images/cover-figure.png" # optional
+    imageWidth: 280 # custom size
+    imageHeight: 280 # custom size
+    buttons:
+      - name: Codes
+        url: projects/
+      - name: Publications
+        url: about/
+
+  socialIcons:
+    - name: github
+      title: View Source on Github
+      url: "https://github.com/mingyi-ai"
+    - name: linkedin
+      title: Connect on LinkedIn
+      url: "https://www.linkedin.com/in/mingyi-h-b71b5219b/"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
