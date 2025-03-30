@@ -95,8 +95,8 @@ const svg = {
   
   /* Check mouse move */
   function mouseHandler(e) {
-    mouse.x = e.pageX;
-    mouse.y = e.pageY;
+    mouse.x = e.pageX - window.scrollX;
+    mouse.y = e.pageY - window.scrollY;
   }
   
   /* Check mouse speed */
