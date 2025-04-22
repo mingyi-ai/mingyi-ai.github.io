@@ -8,6 +8,14 @@
     <language>en-us</language>
     <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Housing Price Prediction with XGBoost</title>
+      <link>http://localhost:1313/projects/housing-price-prediction-with-xgboost/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/housing-price-prediction-with-xgboost/</guid>
+      <description>&lt;p&gt;This is my &lt;a href=&#34;https://www.kaggle.com/code/houmingyi/housing-price-prediction-with-xgboost&#34;&gt;Kaggle notebook&lt;/a&gt; for the &lt;a href=&#34;https://www.kaggle.com/c/house-prices-advanced-regression-techniques&#34;&gt;House Prices - Advanced Regression Techniques&lt;/a&gt; competition on Kaggle. The goal of this competition is to predict the sale price of homes in Ames, Iowa, based on various features of the homes.&lt;/p&gt;
+&lt;p&gt;I will be using various techniques learned in the course to predict the sale price of homes. The techniques include: preprocessing the data, feature engineering, and using different machine learning models to make predictions. I will also be using cross-validation to evaluate the performance of the models and to avoid overfitting.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Monte Carlo Simulation for Fokker-Planck Equations using Metal</title>
       <link>http://localhost:1313/projects/monte-carlo-kfp-metal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

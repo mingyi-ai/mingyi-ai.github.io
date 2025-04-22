@@ -5,6 +5,9 @@
     <loc>http://localhost:1313/</loc>
     <lastmod>2025-03-14T16:18:06+01:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/posts/my-first-post/</loc>
+    <lastmod>2025-03-14T16:18:06+01:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-03-14T16:18:06+01:00</lastmod>
   </url><url>
@@ -12,11 +15,23 @@
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
+    <loc>http://localhost:1313/tags/data-cleaning/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/feature-engineering/</loc>
+  </url><url>
     <loc>http://localhost:1313/tags/fokker-planck/</loc>
   </url><url>
     <loc>http://localhost:1313/tags/gpu/</loc>
   </url><url>
+    <loc>http://localhost:1313/tags/house-prices/</loc>
+  </url><url>
+    <loc>http://localhost:1313/projects/housing-price-prediction-with-xgboost/</loc>
+  </url><url>
     <loc>http://localhost:1313/tags/julia/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/kaggle/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/machine-learning/</loc>
   </url><url>
     <loc>http://localhost:1313/tags/metal/</loc>
   </url><url>
@@ -24,8 +39,14 @@
   </url><url>
     <loc>http://localhost:1313/projects/monte-carlo-kfp-metal/</loc>
   </url><url>
+    <loc>http://localhost:1313/tags/mutual-information/</loc>
+  </url><url>
     <loc>http://localhost:1313/projects/</loc>
   </url><url>
+    <loc>http://localhost:1313/tags/regression/</loc>
+  </url><url>
     <loc>http://localhost:1313/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/xgboost/</loc>
   </url>
 </urlset>

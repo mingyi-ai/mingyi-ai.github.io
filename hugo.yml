@@ -28,12 +28,12 @@ outputs:
 
 menu:
   main:
-    - name: Posts
-      url: posts/
-      weight: 5
-    - name: Codes
+    # - name: Posts
+    #   url: posts/
+    #   weight: 5
+    - name: Projects
       url: projects/
-      weight: 10
+      weight: 5
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
@@ -59,9 +59,9 @@ params:
     imageWidth: 280 # custom size
     imageHeight: 280 # custom size
     buttons:
-      - name: Codes
+      - name: Projects
         url: projects/
-      - name: Publications
+      - name: About
         url: about/
 
   socialIcons:

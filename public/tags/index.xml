@@ -8,6 +8,20 @@
     <language>en-us</language>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Data Cleaning</title>
+      <link>http://localhost:1313/tags/data-cleaning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/data-cleaning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Feature Engineering</title>
+      <link>http://localhost:1313/tags/feature-engineering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/feature-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Fokker-Planck</title>
       <link>http://localhost:1313/tags/fokker-planck/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -22,10 +36,31 @@
       <description></description>
     </item>
     <item>
+      <title>House Prices</title>
+      <link>http://localhost:1313/tags/house-prices/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/house-prices/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Julia</title>
       <link>http://localhost:1313/tags/julia/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/julia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kaggle</title>
+      <link>http://localhost:1313/tags/kaggle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/kaggle/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>http://localhost:1313/tags/machine-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/machine-learning/</guid>
       <description></description>
     </item>
     <item>
@@ -40,6 +75,27 @@
       <link>http://localhost:1313/tags/monte-carlo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/monte-carlo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mutual Information</title>
+      <link>http://localhost:1313/tags/mutual-information/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/mutual-information/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Regression</title>
+      <link>http://localhost:1313/tags/regression/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/regression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>XGBoost</title>
+      <link>http://localhost:1313/tags/xgboost/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/xgboost/</guid>
       <description></description>
     </item>
   </channel>
