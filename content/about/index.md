@@ -18,6 +18,10 @@ I am a PhD student in Mathematics at Uppsala University. My research interests l
 
 - B. Avelin, M. Hou, and K. Nyström. A Galerkin Type Method for Kinetic Fokker-Planck Equations Based on Hermite Expansions. [Kinet. Relat. Models, 2024](https://doi.org/10.3934/krm.2023035).
 
+### Thesis
+
+- M. Hou. Behind the Training Dynamics of Neural Networks: Analysis of Fokker-Planck Equations and the Path to Metastability. [PhD dissertation, Uppsala University, 2025.](https://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-553381)
+
 ## Contact
 
 <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">

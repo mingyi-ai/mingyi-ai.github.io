@@ -6,17 +6,7 @@
     <description>Recent content on Mingyi&#39;s Page</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Mar 2025 16:18:06 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>My First Post</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
-      <pubDate>Fri, 14 Mar 2025 16:18:06 +0100</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;
-&lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;</description>
-    </item>
     <item>
       <title>About Me</title>
       <link>http://localhost:1313/about/</link>
@@ -33,6 +23,10 @@
 &lt;h3 id=&#34;published&#34;&gt;Published&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;B. Avelin, M. Hou, and K. Nyström. A Galerkin Type Method for Kinetic Fokker-Planck Equations Based on Hermite Expansions. &lt;a href=&#34;https://doi.org/10.3934/krm.2023035&#34;&gt;Kinet. Relat. Models, 2024&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;thesis&#34;&gt;Thesis&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;M. Hou. Behind the Training Dynamics of Neural Networks: Analysis of Fokker-Planck Equations and the Path to Metastability. &lt;a href=&#34;https://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-553381&#34;&gt;PhD dissertation, Uppsala University, 2025.&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;contact&#34;&gt;Contact&lt;/h2&gt;
 &lt;div style=&#34;display: flex; justify-content: space-between; flex-wrap: wrap;&#34;&gt;
