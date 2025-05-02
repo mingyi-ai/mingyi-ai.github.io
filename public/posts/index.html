@@ -143,6 +143,11 @@
         </div>
         <ul id="menu">
             <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span class="active">Posts</span>
+                </a>
+            </li>
+            <li>
                 <a href="http://localhost:1313/projects/" title="Projects">
                     <span>Projects</span>
                 </a>
@@ -164,6 +169,20 @@
     </a>
   </h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Numerical Methods for Hermite Polynomials
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In this post, we will explore the numerics of Hermite polynomials, as part of a numerical solver project for Kramers hyperbolic system. In particular, we try to compute eigenvectors numerically for the Hermite generating matrix, which is a tridiagonal matrix given by the recurrence relation
+$$ x \mathrm{H}_{n}(x) = \sqrt{n&#43;1} \mathrm{H}_{n&#43;1}(x) - \sqrt{n} \mathrm{H}_{n-1}(x) $$for \( n \geq 1 \) with \(\mathrm{H}_{n}(x)\) being the \(n\)-th normalized Hermite polynomial. The generating matrix is given by
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-05-02 00:00:00 +0000 UTC'>May 2, 2025</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Mingyi Hou</footer>
+  <a class="entry-link" aria-label="post link to Numerical Methods for Hermite Polynomials" href="http://localhost:1313/posts/25-05-02_hermite-numerics/"></a>
+</article>
         <link rel="stylesheet" href="/css/dots-field.css">
         <script src="/js/dots-field.js" defer></script>
         <svg id="dots-field"></svg>

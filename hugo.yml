@@ -28,9 +28,9 @@ outputs:
 
 menu:
   main:
-    # - name: Posts
-    #   url: posts/
-    #   weight: 5
+    - name: Posts
+      url: posts/
+      weight: 5
     - name: Projects
       url: projects/
       weight: 5
@@ -73,6 +73,19 @@ params:
       url: "https://www.linkedin.com/in/mingyi-h-b71b5219b/"
 
 markup:
+  highlight:
+    linenos: true
+    codeFences: true
   goldmark:
     renderer:
       unsafe: true
+    extensions:
+      passthrough:
+        delimiters:
+          block: [["\\[", "\\]"], ["$$", "$$"]]
+          inline: [["\\(", "\\)"], ["$", "$"]]
+        enable: true
+    parser:
+      attribute: 
+        block: true
+        

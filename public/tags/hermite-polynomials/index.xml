@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on Mingyi&#39;s Page</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on Mingyi&#39;s Page</description>
+    <title>Hermite Polynomials on Mingyi&#39;s Page</title>
+    <link>http://localhost:1313/tags/hermite-polynomials/</link>
+    <description>Recent content in Hermite Polynomials on Mingyi&#39;s Page</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 02 May 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/hermite-polynomials/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Numerical Methods for Hermite Polynomials</title>
       <link>http://localhost:1313/posts/25-05-02_hermite-numerics/</link>
       <pubDate>Fri, 02 May 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/25-05-02_hermite-numerics/</guid>
-      <description>&lt;p&gt;In this post, we will explore the numerics of Hermite polynomials, as part of a numerical solver project for Kramers hyperbolic system. In particular, we try to compute eigenvectors numerically for the Hermite generating matrix, which is a tridiagonal matrix given by the recurrence relation&lt;/p&gt;
+      <description>&lt;p&gt;In this post, we will explore the numerics of Hermite polynomials, as part of a numerical solver for Kramers hyperbolic system project. In particular, we try to compute eigenvectors numerically for the Hermite generating matrix, which is a tridiagonal matrix given by the recurrence relation&lt;/p&gt;
 $$
 x \mathrm{H}_{n}(x) = \sqrt{n+1} \mathrm{H}_{n+1}(x) - \sqrt{n} \mathrm{H}_{n-1}(x)
 $$&lt;p&gt;for \( n \geq 1 \) with \(\mathrm{H}_{n}(x)\) being the \(n\)-th normalized Hermite polynomial.
