@@ -152,8 +152,8 @@ He_symbolic(15)
 
 
 
-For $n=20$, the largest coefficient is around $10^{6}$, while the smallest is always $1.0$, this could lead to numerical instability when evaluating the polynomial directly.
-To solve this problem, we can use the recurrence relation to evaluate the polynomial, which should give us a more stable result for small $n$.
+For $n=15$, the largest coefficient is around $10^{6}$, while the smallest is always $1.0$, this could lead to numerical instability when evaluating the polynomial directly.
+To solve this problem, we can use the recurrence relation to evaluate the polynomial, which should give us a more stable result for large $n$.
 
 
 ```julia
@@ -224,7 +224,7 @@ y_vals = vcat([fill(n, length(root_data[n])) for n in 1:20]...)
 scatter(x_vals, y_vals, xlabel="Roots", ylabel="n", title="Roots Distribution of Hermite polynomials for n=1:20", legend=false)
 ```
 
-![Roots Distribution of Hermite polynomials for n=1:20](/images/25-05-02_Hermite-numerics/JL-Hermite_9_0.png)
+![Roots Distribution of Hermite polynomials for n=1:20](/images/25-05-02_Hermite-numerics/JL-Hermite_9_0.svg)
 
 
 
@@ -287,7 +287,7 @@ In this section, we will construct the normalized eigenvectors of the Hermite ge
 using SpecialFunctions: logfactorial
 
 # An auxiliary function to compute the normalization constant
-function He_norm(n::Int)
+function He_l2norm(n::Int)
     return sqrt(exp(logfactorial(n)))
 end
 
@@ -300,7 +300,7 @@ function analytic_eigenvecs(n::Int)
         root_i = rts[i]
 
         for j in 1:n
-            Pmat[j, i] = He(j-1, root_i) / He_norm(j-1)
+            Pmat[j, i] = He(j-1, root_i) / He_l2norm(j-1)
         end
 
         # Normalize each vector (column)
@@ -341,8 +341,10 @@ end
 
 
 
+<details>
+<summary>Show Code</summary>
 
-```julia
+```Julia
 # Define the range of n
 n_values = 2:200
 
@@ -373,9 +375,11 @@ plot!(p2, n_values, log10.(numerical_diag_errors), label="Numerical")
 plot(p1, p2, layout=(2, 1))
 ```
 
+</details>
 
 
-![Log-scale errors](/images/25-05-02_Hermite-numerics/JL-Hermite_17_0.png)
+
+![Log-scale errors](/images/25-05-02_Hermite-numerics/JL-Hermite_17_0.svg)
 
 
 
@@ -385,12 +389,96 @@ From the plot we can see that the analytical method is marginally better than th
 
 ```julia
 for n in 169:172
-    print(He_norm(n), ", ")
+    print(He_l2norm(n), ", ")
 end
 ```
 
     2.0661723086434517e152, 2.6939590968143674e153, Inf, Inf, 
 
-This suggests that we can use the analytical method for small $n$, such as $n<50$, where the analytical method diagnoalizes the matrix $\mathrm{T}_n$ more accurately than the numerical method.
-In practice, using large $n$ for the Hermite polynomials is not recommended, as there are already numerical instabilities when evaluating the Hermite polynomials.
+To solve this problem, we can use the recurrence relation to compute the normalized Hermite polynomials as before, which avoids the need to compute the normalization factor. 
 
+
+```julia
+function Henorm(n::Int, x::Float64)
+    He_0 = 1.0
+    if n == 0
+        return He_0
+    end
+
+    He_1 = x
+
+    for k in 2:n
+        He_2 = x * He_1 / sqrt(k) - sqrt((k - 1) / k) * He_0
+        He_0, He_1 = He_1, He_2
+    end
+
+    return He_1
+end
+
+function analytic_eigenvecs_norm(n::Int)
+    Pmat = zeros(Float64, n, n) # initializing the matrix
+
+    rts, _ = get_eigen(n)  # Get the roots
+
+    for i in 1:n
+        root_i = rts[i]
+
+        for j in 1:n
+            Pmat[j, i] = Henorm(j-1, root_i)
+        end
+
+        # Normalize each vector (column)
+        Pmat[:, i] /= norm(Pmat[:, i])
+    end
+
+    return Pmat
+end
+```
+
+
+
+<details>
+<summary>Show Code</summary>
+
+```julia
+# Define the range of n
+n_values = 2:200
+
+# Initialize error arrays for both methods
+analytic_orth_errors = Float64[]
+analytic_diag_errors = Float64[]
+numerical_orth_errors = Float64[]
+numerical_diag_errors = Float64[]
+
+# Compute errors for both methods
+for n in n_values
+    P_analytic = analytic_eigenvecs_norm(n)
+    rts, P_numerical = get_eigen(n)
+
+    push!(analytic_orth_errors, orthonormality_error(P_analytic))
+    push!(analytic_diag_errors, diagonal_error(P_analytic, rts, n))
+    push!(numerical_orth_errors, orthonormality_error(P_numerical))
+    push!(numerical_diag_errors, diagonal_error(P_numerical, rts, n))
+end
+
+# Create 2x2 subplots
+p1 = plot(n_values, log10.(analytic_orth_errors), label="Analytic", title="Log-scale Orthonormality Error", xlabel="n", ylabel="Error")
+plot!(p1, n_values, log10.(numerical_orth_errors), label="Numerical")
+
+p2 = plot(n_values, log10.(analytic_diag_errors), label="Analytic", title="Log-scale Diagonalization Error", xlabel="n", ylabel="Error")
+plot!(p2, n_values, log10.(numerical_diag_errors), label="Numerical")
+
+plot(p1, p2, layout=(2, 1))
+```
+
+</details>
+
+![Log-scale errors after fixing the normalization](/images/25-05-02_Hermite-numerics/JL-Hermite_22_0.svg)
+
+After the above changes, we can see that the analytical method is now more stable than the numerical method, and the errors are much smaller. 
+However, in practice, using large $n$ for the Hermite polynomials is not recommended, as there are already numerical instabilities when evaluating the Hermite polynomials.
+
+## Download the notebook
+
+<!-- [Download the notebook](/files/25-05-02_Hermite-numerics.ipynb) -->
+<a href="/files/25-05-02_Hermite-numerics.ipynb" download style="padding: 0.4em 0.8em; background: #007acc; color: white; border-radius: 5px; text-decoration: none;">📥 Download Notebook</a>
