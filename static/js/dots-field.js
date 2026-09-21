@@ -89,66 +89,59 @@ if (field) {
 
     rebuildDots();
 
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        window.addEventListener(
-            "pointermove",
-            function (event) {
-                pointer.x = event.clientX;
-                pointer.y = event.clientY;
+    window.addEventListener(
+        "pointermove",
+        function (event) {
+            pointer.x = event.clientX;
+            pointer.y = event.clientY;
 
-                if (!pointer.initialized) {
-                    pointer.previousX = pointer.x;
-                    pointer.previousY = pointer.y;
-                    pointer.initialized = true;
-                }
-            },
-            { passive: true }
+            if (!pointer.initialized) {
+                pointer.previousX = pointer.x;
+                pointer.previousY = pointer.y;
+                pointer.initialized = true;
+            }
+        },
+        { passive: true }
+    );
+
+    function animate() {
+        const movement = Math.hypot(
+            pointer.previousX - pointer.x,
+            pointer.previousY - pointer.y
         );
+        pointer.speed += (movement - pointer.speed) * 0.5;
+        pointer.previousX = pointer.x;
+        pointer.previousY = pointer.y;
 
-        function animate() {
-            const movement = Math.hypot(
-                pointer.previousX - pointer.x,
-                pointer.previousY - pointer.y
-            );
-            pointer.speed += (movement - pointer.speed) * 0.5;
-            pointer.previousX = pointer.x;
-            pointer.previousY = pointer.y;
+        if (pointer.speed < 0.001) {
+            pointer.speed = 0;
+        }
 
-            if (pointer.speed < 0.001) {
-                pointer.speed = 0;
+        for (const dot of dots) {
+            const distanceX = pointer.x - viewport.x - dot.position.x;
+            const distanceY = pointer.y - viewport.y - dot.position.y;
+            const distance = Math.max(Math.hypot(distanceX, distanceY), 1);
+
+            if (pointer.initialized && distance < 100) {
+                const angle = Math.atan2(distanceY, distanceX);
+                const movementAmount =
+                    (500 / distance) * (pointer.speed * 0.1);
+                dot.velocity.x -= Math.cos(angle) * movementAmount;
+                dot.velocity.y -= Math.sin(angle) * movementAmount;
             }
 
-            for (const dot of dots) {
-                const distanceX =
-                    pointer.x - viewport.x - dot.position.x;
-                const distanceY =
-                    pointer.y - viewport.y - dot.position.y;
-                const distance = Math.max(
-                    Math.hypot(distanceX, distanceY),
-                    1
-                );
-
-                if (pointer.initialized && distance < 100) {
-                    const angle = Math.atan2(distanceY, distanceX);
-                    const movementAmount =
-                        (500 / distance) * (pointer.speed * 0.1);
-                    dot.velocity.x -= Math.cos(angle) * movementAmount;
-                    dot.velocity.y -= Math.sin(angle) * movementAmount;
-                }
-
-                dot.velocity.x *= 0.9;
-                dot.velocity.y *= 0.9;
-                dot.position.x = dot.anchor.x + dot.velocity.x;
-                dot.position.y = dot.anchor.y + dot.velocity.y;
-                dot.smooth.x += (dot.position.x - dot.smooth.x) * 0.1;
-                dot.smooth.y += (dot.position.y - dot.smooth.y) * 0.1;
-                dot.element.setAttribute("cx", dot.smooth.x);
-                dot.element.setAttribute("cy", dot.smooth.y);
-            }
-
-            requestAnimationFrame(animate);
+            dot.velocity.x *= 0.9;
+            dot.velocity.y *= 0.9;
+            dot.position.x = dot.anchor.x + dot.velocity.x;
+            dot.position.y = dot.anchor.y + dot.velocity.y;
+            dot.smooth.x += (dot.position.x - dot.smooth.x) * 0.1;
+            dot.smooth.y += (dot.position.y - dot.smooth.y) * 0.1;
+            dot.element.setAttribute("cx", dot.smooth.x);
+            dot.element.setAttribute("cy", dot.smooth.y);
         }
 
         requestAnimationFrame(animate);
     }
+
+    requestAnimationFrame(animate);
 }
