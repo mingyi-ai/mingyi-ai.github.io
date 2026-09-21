@@ -1,11 +1,12 @@
 baseURL: "https://mingyi-ai.github.io/"
 title: "Mingyi's Page"
-languageCode: "en-us"
+locale: "en-US"
 theme: "PaperMod"
 
-paginate.pageSize: 10
+pagination:
+  pagerSize: 10
 
-enableInlineShortcodes: true 
+enableInlineShortcodes: true
 enableRobotsTXT: true
 enableEmoji: true
 pygmentsUseClasses: true # syntax highlighting
@@ -15,7 +16,7 @@ build:
   future: false
   expired: false
 
-mainsections: ["posts", "projects"]
+mainSections: ["posts", "projects"]
 
 minify:
   disableXML: true
@@ -86,6 +87,5 @@ markup:
           inline: [["\\(", "\\)"], ["$", "$"]]
         enable: true
     parser:
-      attribute: 
+      attribute:
         block: true
-        
