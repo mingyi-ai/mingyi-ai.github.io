@@ -39,6 +39,12 @@ menu:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   author: "Mingyi Hou"
+  description: "Mingyi Hou is a quantitative analyst and engineer with a PhD in Mathematics, working across probability, partial differential equations, and machine learning."
+  keywords: ["Mingyi Hou", "quantitative analyst", "mathematics", "probability", "partial differential equations", "machine learning"]
+
+  schema:
+    publisherType: Person
+
   ShowShareButtons: false
   ShowReadingTime: true
   disableSpecial1stPost: true

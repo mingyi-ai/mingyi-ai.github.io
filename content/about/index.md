@@ -1,5 +1,6 @@
 ---
 title: 'About Me'
+description: 'Background, research publications, and contact information for Mingyi Hou, a quantitative analyst and engineer with a PhD in Mathematics.'
 ShowReadingTime: false
 ShowToc: false
 ---

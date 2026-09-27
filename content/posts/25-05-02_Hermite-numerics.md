@@ -1,5 +1,6 @@
 ---
 title: "Numerical Methods for Hermite Polynomials"
+description: "Numerical methods for computing eigenvalues and eigenvectors of normalized Hermite polynomials, with implementations and experiments in Julia."
 date: 2025-05-02
 draft: false
 tags: ["Hermite Polynomials", "Numerical Methods"]

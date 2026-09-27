@@ -2,3 +2,6 @@
 /resources/
 /.hugo_build.lock
 /hugo_stats.json
+
+# pi agent artifacts
+AGENTS.md
