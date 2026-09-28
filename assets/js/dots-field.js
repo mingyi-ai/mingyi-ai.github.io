@@ -26,7 +26,6 @@
 const field = document.querySelector("#dots-field");
 
 if (field) {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const viewport = { width: 0, height: 0, x: 0, y: 0 };
     const dots = [];
     const circle = { radius: 3, margin: 20 };
@@ -123,17 +122,11 @@ if (field) {
     }
 
     function updateAnimation() {
-        const shouldAnimate = !reducedMotion.matches && !document.hidden;
-
-        if (!shouldAnimate && animationFrame !== null) {
+        if (document.hidden && animationFrame !== null) {
             cancelAnimationFrame(animationFrame);
             animationFrame = null;
-        } else if (shouldAnimate && animationFrame === null) {
+        } else if (!document.hidden && animationFrame === null) {
             animationFrame = requestAnimationFrame(animate);
-        }
-
-        if (reducedMotion.matches) {
-            rebuildDots();
         }
     }
 
@@ -158,7 +151,6 @@ if (field) {
     );
 
     document.addEventListener("visibilitychange", updateAnimation);
-    reducedMotion.addEventListener("change", updateAnimation);
 
     rebuildDots();
     updateAnimation();
