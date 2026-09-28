@@ -1,11 +1,10 @@
 ---
 title: 'About Me'
-description: 'Background, research publications, and contact information for Mingyi Hou, a quantitative analyst and engineer with a PhD in Mathematics.'
 ShowReadingTime: false
 ShowToc: false
 ---
 
-I am a quantitative analyst and engineer with a PhD in Mathematics from Uppsala University. My research interests lie at the intersection of probability theory, partial differential equations, and machine learning. I am particularly interested in the mathematical analysis of stochastic processes and their applications in machine learning.
+I am a quantitative analyst/software engineer with a PhD in Mathematics from Uppsala University. My research interests lie at the intersection of probability theory, partial differential equations, and machine learning. I am particularly interested in the mathematical analysis of stochastic processes and their applications in machine learning.
 
 ## Research Publications
 

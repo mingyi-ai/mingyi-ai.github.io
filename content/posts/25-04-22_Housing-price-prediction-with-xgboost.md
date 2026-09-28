@@ -1,5 +1,6 @@
 ---
 title: "Housing Price Prediction with XGBoost"
+date: 2025-04-22
 tags: ["XGBoost", "Kaggle", "House Prices", "Regression", "Machine Learning", "Feature Engineering", "Data Cleaning", "Mutual Information"]
 ---
 This is my [Kaggle notebook](https://www.kaggle.com/code/houmingyi/housing-price-prediction-with-xgboost) for the [House Prices - Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques) competition on Kaggle. The goal of this competition is to predict the sale price of homes in Ames, Iowa, based on various features of the homes.
