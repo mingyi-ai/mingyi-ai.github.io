@@ -1,0 +1,3 @@
+<svg id="dots-field" aria-hidden="true" focusable="false"></svg>
+{{- $dots := resources.Get "js/dots-field.js" | minify | fingerprint "sha256" -}}
+<script src="{{ $dots.RelPermalink }}" integrity="{{ $dots.Data.Integrity }}" defer></script>

@@ -1,6 +1,6 @@
 # mingyi-ai.github.io
 
-Personal website built with [Hugo](https://gohugo.io/) and the upstream [PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme.
+Personal website built with [Hugo](https://gohugo.io/) and the upstream [Stack](https://github.com/CaiJimmy/hugo-theme-stack) theme.
 
 ## Local development
 
@@ -18,26 +18,41 @@ If the repository was cloned without submodules:
 git submodule update --init --recursive
 ```
 
-Use Hugo Extended 0.165.0 locally to match CI. PaperMod currently requires Hugo 0.146.0 or newer.
+Use Hugo Extended 0.165.0 locally to match CI. The pinned Stack release requires Hugo 0.157.0 or newer.
+
+## Content
+
+Posts and projects are separate Hugo sections. Both appear in the homepage feed, ordered by `lastmod`; their section pages provide filtered feeds.
+
+Use `date` for initial publication and update `lastmod` only for meaningful public revisions. New content starts as a draft through the section archetypes:
+
+```sh
+hugo new content posts/YY-MM-DD_Title.md
+hugo new content projects/project-name.md
+```
 
 ## Customization
 
-Site-specific changes live in this repository rather than in a PaperMod fork:
+Site-specific changes live in this repository rather than in the Stack submodule:
 
-- `assets/css/extended/custom.css` — profile, post, and background styles
-- `layouts/_partials/extend_head.html` — KaTeX setup
-- `layouts/_partials/extend_footer.html` — animated background markup and script
-- `static/js/dots-field.js` — animated background implementation
+- `assets/scss/custom.scss` — animated background integration
+- `assets/js/dots-field.js` — animated background implementation
+- `layouts/_partials/footer/custom.html` — background markup and fingerprinted script
+- `layouts/_partials/article/components/details.html` — updated-date metadata in feed cards
+- `layouts/section.html` — card-style filtered section feeds
 
-To update PaperMod:
+Stack supplies article math rendering. Add `math: true` to pages that use KaTeX notation.
+
+To update Stack, select and test an upstream release rather than tracking its default branch:
 
 ```sh
-git submodule update --remote themes/PaperMod
-git add themes/PaperMod
-git commit -m "Update PaperMod"
+git -C themes/hugo-theme-stack fetch --tags
+git -C themes/hugo-theme-stack checkout vX.Y.Z
+hugo --gc --minify --panicOnWarning
+git add themes/hugo-theme-stack
 ```
 
-Review and build the site before committing a theme update.
+Review the local layout overrides against the corresponding upstream templates before committing a theme update.
 
 ## Deployment
 

@@ -1,0 +1,23 @@
+#dots-field {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: visible;
+    pointer-events: none;
+}
+
+#dots-field circle {
+    fill: var(--body-text-color);
+    opacity: 0.18;
+}
+
+.main-container {
+    position: relative;
+    z-index: 1;
+}
+
+[data-scheme="dark"] #dots-field circle {
+    opacity: 0.24;
+}

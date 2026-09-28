@@ -1,7 +1,8 @@
 baseURL: "https://mingyi-ai.github.io/"
 title: "Mingyi's Page"
+theme: "hugo-theme-stack"
+defaultContentLanguage: "en"
 locale: "en-US"
-theme: "PaperMod"
 
 pagination:
   pagerSize: 10
@@ -9,14 +10,17 @@ pagination:
 enableInlineShortcodes: true
 enableRobotsTXT: true
 enableEmoji: true
-pygmentsUseClasses: true # syntax highlighting
 
 build:
   drafts: false
   future: false
   expired: false
 
-mainSections: ["posts", "projects"]
+frontmatter:
+  date: ["date", "publishDate"]
+  lastmod: ["lastmod", "date", "publishDate"]
+  publishDate: ["publishDate", "date"]
+  expiryDate: ["expiryDate"]
 
 minify:
   disableXML: true
@@ -25,64 +29,89 @@ outputs:
   home:
     - HTML
     - RSS
-    - JSON
 
 menu:
   main:
-    - name: Posts
-      url: posts/
-      weight: 5
-    - name: Projects
-      url: projects/
-      weight: 5
+    - identifier: home
+      name: Home
+      pageRef: /
+      weight: 10
+      params:
+        icon: home
+  social:
+    - identifier: github
+      name: GitHub
+      url: "https://github.com/mingyi-ai"
+      params:
+        icon: brand-github
+        newTab: true
+    - identifier: linkedin
+      name: LinkedIn
+      url: "https://www.linkedin.com/in/mingyi-h-b71b5219b/"
+      params:
+        icon: brand-linkedin
+        newTab: true
 
 params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  mainSections: ["posts", "projects"]
+  SortBy: "lastmod"
+  rssFullContent: true
   author: "Mingyi Hou"
   description: "Mingyi Hou is a quantitative analyst and engineer with a PhD in Mathematics, working across probability, partial differential equations, and machine learning."
   keywords: ["Mingyi Hou", "quantitative analyst", "mathematics", "probability", "partial differential equations", "machine learning"]
 
-  schema:
-    publisherType: Person
+  footer:
+    since: 2025
 
-  ShowShareButtons: false
-  ShowReadingTime: true
-  disableSpecial1stPost: true
-  displayFullLangName: true
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  ShowRssButtonInSectionTermList: true
-  ShowAllPagesInArchive: true
-  ShowPageNums: true
-  ShowToc: true
-  comments: false
+  dateFormat:
+    published: ":date_long"
+    lastUpdated: ":date_long"
 
-  profileMode:
-    enabled: true
-    title: "Hou, Mingyi" # optional default will be site title
-    subtitle: "Machine Learning | Mathematics" # optional
-    imageUrl: "/images/cover-figure.png" # optional
-    imageWidth: 280 # custom size
-    imageHeight: 280 # custom size
-    buttons:
-      - name: Projects
-        url: projects/
-      - name: About
-        url: about/
+  sidebar:
+    subtitle: "Machine Learning | Mathematics"
+    avatar: "img/avatar.png"
 
-  socialIcons:
-    - name: github
-      title: View Source on Github
-      url: "https://github.com/mingyi-ai"
-    - name: linkedin
-      title: Connect on LinkedIn
-      url: "https://www.linkedin.com/in/mingyi-h-b71b5219b/"
+  article:
+    headingAnchor: true
+    math: false
+    toc: true
+    readingTime: true
+    list:
+      showTags: true
+    license:
+      enabled: false
+
+  widgets:
+    homepage: []
+    page:
+      - type: toc
+
+  opengraph:
+    twitter:
+      card: summary_large_image
+
+  colorScheme:
+    toggle: true
+    default: auto
+
+  imageProcessing:
+    autoOrient: true
+    external:
+      timeout: "5s"
+    content:
+      enabled: true
+      widths: [800, 1600, 2400]
+    thumbnail:
+      enabled: true
+
+  comments:
+    enabled: false
 
 markup:
   highlight:
-    linenos: true
     codeFences: true
+    lineNos: true
+    noClasses: false
   goldmark:
     renderer:
       unsafe: true

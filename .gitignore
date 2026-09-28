@@ -2,6 +2,9 @@
 /resources/
 /.hugo_build.lock
 /hugo_stats.json
+/assets/jsconfig.json
 
 # pi agent artifacts
 AGENTS.md
+MEMORY.md
+ISSUES.md

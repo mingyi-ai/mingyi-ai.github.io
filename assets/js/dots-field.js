@@ -26,6 +26,7 @@
 const field = document.querySelector("#dots-field");
 
 if (field) {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const viewport = { width: 0, height: 0, x: 0, y: 0 };
     const dots = [];
     const circle = { radius: 3, margin: 20 };
@@ -37,6 +38,8 @@ if (field) {
         speed: 0,
         initialized: false
     };
+    let animationFrame = null;
+    let resizeFrame = null;
 
     function rebuildDots() {
         const bounds = field.getBoundingClientRect();
@@ -81,29 +84,6 @@ if (field) {
         }
     }
 
-    let resizeFrame;
-    window.addEventListener("resize", function () {
-        cancelAnimationFrame(resizeFrame);
-        resizeFrame = requestAnimationFrame(rebuildDots);
-    });
-
-    rebuildDots();
-
-    window.addEventListener(
-        "pointermove",
-        function (event) {
-            pointer.x = event.clientX;
-            pointer.y = event.clientY;
-
-            if (!pointer.initialized) {
-                pointer.previousX = pointer.x;
-                pointer.previousY = pointer.y;
-                pointer.initialized = true;
-            }
-        },
-        { passive: true }
-    );
-
     function animate() {
         const movement = Math.hypot(
             pointer.previousX - pointer.x,
@@ -124,8 +104,7 @@ if (field) {
 
             if (pointer.initialized && distance < 100) {
                 const angle = Math.atan2(distanceY, distanceX);
-                const movementAmount =
-                    (500 / distance) * (pointer.speed * 0.1);
+                const movementAmount = (500 / distance) * (pointer.speed * 0.1);
                 dot.velocity.x -= Math.cos(angle) * movementAmount;
                 dot.velocity.y -= Math.sin(angle) * movementAmount;
             }
@@ -140,8 +119,47 @@ if (field) {
             dot.element.setAttribute("cy", dot.smooth.y);
         }
 
-        requestAnimationFrame(animate);
+        animationFrame = requestAnimationFrame(animate);
     }
 
-    requestAnimationFrame(animate);
+    function updateAnimation() {
+        const shouldAnimate = !reducedMotion.matches && !document.hidden;
+
+        if (!shouldAnimate && animationFrame !== null) {
+            cancelAnimationFrame(animationFrame);
+            animationFrame = null;
+        } else if (shouldAnimate && animationFrame === null) {
+            animationFrame = requestAnimationFrame(animate);
+        }
+
+        if (reducedMotion.matches) {
+            rebuildDots();
+        }
+    }
+
+    window.addEventListener("resize", function () {
+        cancelAnimationFrame(resizeFrame);
+        resizeFrame = requestAnimationFrame(rebuildDots);
+    });
+
+    window.addEventListener(
+        "pointermove",
+        function (event) {
+            pointer.x = event.clientX;
+            pointer.y = event.clientY;
+
+            if (!pointer.initialized) {
+                pointer.previousX = pointer.x;
+                pointer.previousY = pointer.y;
+                pointer.initialized = true;
+            }
+        },
+        { passive: true }
+    );
+
+    document.addEventListener("visibilitychange", updateAnimation);
+    reducedMotion.addEventListener("change", updateAnimation);
+
+    rebuildDots();
+    updateAnimation();
 }

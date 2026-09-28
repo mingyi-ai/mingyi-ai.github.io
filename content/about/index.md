@@ -1,7 +1,11 @@
 ---
-title: 'About Me'
-ShowReadingTime: false
-ShowToc: false
+title: "About Me"
+menu:
+  main:
+    name: "About"
+    weight: 40
+    params:
+      icon: user
 ---
 
 I am a quantitative analyst/software engineer with a PhD in Mathematics from Uppsala University. My research interests lie at the intersection of probability theory, partial differential equations, and machine learning. I am particularly interested in the mathematical analysis of stochastic processes and their applications in machine learning.

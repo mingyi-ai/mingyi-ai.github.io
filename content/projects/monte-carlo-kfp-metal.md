@@ -1,6 +1,9 @@
 ---
 title: "MonteCarloKFP.jl: Monte Carlo Solvers for Fokker–Planck Exit Problems"
 description: "Notes on the mathematical scope, abstraction boundaries, GPU plans, and engineering lessons behind a Julia Monte Carlo solver for kinetic boundary-value problems."
+date: 2025-03-30
+lastmod: 2026-09-27
+math: true
 tags: ["Monte Carlo", "Fokker-Planck", "SDE", "Julia", "Scientific Computing"]
 ---
 
